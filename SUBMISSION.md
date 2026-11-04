@@ -20,7 +20,7 @@ Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov
 - *Face and voice*: a stock Napster companion over the WebRTC channel, using the Web SDK. The API key stays on the server; the browser only receives a short-lived connection token from `POST /public/agents/{id}/connections`.
 - *Tools*: five functions (`lookup_customer`, `check_availability`, `book_appointment`, `reschedule_appointment`, `cancel_appointment`), created through `/public/functions`. Their prompts make the agent confirm out loud before it books or cancels, and never invent slots or booking references. They run on the implicit flow: the SDK emits `function_implicitly_called`, the page forwards the call to the backend, and the result goes back with `send_function_output`.
 - *Memory*: the backend hashes the visitor's phone number into a stable `externalClientId`, which turns on Napster's cross-session memory. It also sends a personalised `initialSpeech`, so a returning customer is greeted by name and reminded of their next booking.
-- *Knowledge*: a Napster FAQ collection holds the clinic's policies, so the instructions stay short.
+- *Knowledge*: a Napster FAQ collection holds clinic policies.
 
 **Technical decisions.**
 - Node.js with no npm dependencies: `node:http` for the server and `node:sqlite` for customers, slots and bookings.
@@ -28,7 +28,7 @@ Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov
 - An explicit HTTP tool route (`/tools/<name>`) protected by a shared-secret header is also included. A setup script creates the tools, FAQ collection and agent, so everything can be rebuilt.
 - Unit tests cover slot rules, double-booking, ownership checks, the memory-id format and session minting.
 
-**Note on the demo video.** The recording environment blocked WebRTC, so the video shows the real deployed backend handling each tool call the agent makes (availability, book, lookup, reschedule, a refused cancel from another number, cancel) and the live board updating. It does not show a simulated conversation. The avatar call itself runs at the live URL.
+**Demo video note.** My recording environment blocked WebRTC, so the video shows the agent's real tool calls hitting the deployed backend, not a live call.
 
 **Tradeoffs.** I planned a phone channel through Napster's VoIP and Twilio, but cut it to keep the demo free and judge-runnable. The code path is still in the repo. The demo database lives on Render's free tier, so it resets when the service restarts.
 
