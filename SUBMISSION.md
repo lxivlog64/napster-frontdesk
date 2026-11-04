@@ -8,7 +8,7 @@ Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov
 | Tagline | A receptionist with a face, a voice and a memory that books, moves and cancels appointments for small clinics. |
 | Hosted demo | https://napster-frontdesk.onrender.com (free Render tier: first load can take ~50 s to wake up) |
 | Repository | https://github.com/lxivlog64/napster-frontdesk |
-| Demo video | _TODO: YouTube/unlisted link, ≤ 3:00_ |
+| Demo video | _TODO: upload link (≤ 3:00)._ Current cut: `/workspace/napster-video/demo.mp4` (2:31). It is a fallback: the recording box blocks WebRTC, so it shows the live UI and the agent's tool calls sent directly to the deployed backend, with no live avatar call. Re-record with a real call if possible. |
 
 ## Written summary (≤ 500 words; ~430 below)
 
@@ -27,6 +27,8 @@ Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov
 - Server-side rules: opening hours, no double-booking, slots must be in the future, and a caller can only change their own bookings (`not_owner`).
 - An explicit HTTP tool route (`/tools/<name>`) protected by a shared-secret header is also included. A setup script creates the tools, FAQ collection and agent, so everything can be rebuilt.
 - Unit tests cover slot rules, double-booking, ownership checks, the memory-id format and session minting.
+
+**Note on the demo video.** The recording environment blocked WebRTC, so the video shows the real deployed backend handling each tool call the agent makes (availability, book, lookup, reschedule, a refused cancel from another number, cancel) and the live board updating. It does not show a simulated conversation. The avatar call itself runs at the live URL.
 
 **Tradeoffs.** I planned a phone channel through Napster's VoIP and Twilio, but cut it to keep the demo free and judge-runnable. The code path is still in the repo. The demo database lives on Render's free tier, so it resets when the service restarts.
 
