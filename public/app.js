@@ -32,13 +32,19 @@ async function onData(msg) {
 $('#start').onsubmit = async (e) => {
   e.preventDefault(); phone = $('#ph').value.trim() || null;
   $('#status').textContent = 'Connecting…';
-  const r = await fetch('/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone }) });
-  const s = await r.json();
-  if (!r.ok) { $('#status').textContent = s.error || 'Could not start'; return; }
-  $('#status').textContent = s.returning ? 'Welcome back! Connecting you…' : 'Connecting you…';
+  let returning = false;
+  // SDK asks for a fresh token via getToken() (pre-minted strings are no longer accepted); it may call it again on reconnect.
+  const getToken = async () => {
+    const r = await fetch('/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone }) });
+    const s = await r.json();
+    if (!r.ok) throw new Error(s.error || 'Could not start');
+    returning = s.returning;
+    $('#status').textContent = s.returning ? 'Welcome back! Connecting you…' : 'Connecting you…';
+    return s.token;
+  };
   instance?.destroy();
-  instance = await window.napsterCompanionApiSDK.init(s.token, {
-    mountContainer: '#avatar', onData,
+  instance = await window.napsterCompanionApiSDK.init(getToken, {
+    layout: { type: 'inline', mountContainer: '#avatar' }, onData, debug: new URLSearchParams(location.search).has('debug'),
     onAvatarReady: () => ($('#status').textContent = 'Live. Just talk.'),
     onError: (err) => ($('#status').textContent = 'Error: ' + (err?.message || err)),
   });
