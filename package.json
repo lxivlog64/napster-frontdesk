@@ -1,0 +1,17 @@
+{
+  "name": "napster-frontdesk",
+  "version": "0.1.0",
+  "description": "Phone + video front-desk booking Omniagent for small clinics and B&Bs, built on the Napster API",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "setup:agent": "node scripts/setup-agent.js",
+    "setup:dry": "node scripts/setup-agent.js --dry-run",
+    "verify:api": "node scripts/verify-api.js"
+  },
+  "license": "MIT"
+}

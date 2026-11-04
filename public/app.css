@@ -1,0 +1,12 @@
+body{font-family:system-ui,sans-serif;margin:0;background:#f5f3ef;color:#222}
+header{padding:24px 32px;background:#1f3b36;color:#fff}header p{margin:4px 0 0;opacity:.85}
+main{display:grid;grid-template-columns:minmax(320px,1fr) 1.4fr;gap:20px;padding:20px 32px}
+.card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 1px 4px #0001}
+#avatar{height:420px;margin-top:12px;border-radius:12px;overflow:hidden;background:#eee}
+input{display:block;width:100%;padding:8px;margin:6px 0 10px;box-sizing:border-box}
+button{background:#1f3b36;color:#fff;border:0;padding:10px 16px;border-radius:8px;cursor:pointer}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:6px;border-bottom:1px solid #eee;text-align:left}
+tr.flash{animation:f 2s}@keyframes f{from{background:#ffe9a8}to{background:none}}
+.cancelled{color:#999;text-decoration:line-through}.muted{color:#777;font-size:13px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#2bb673;margin-left:6px}
+@media(max-width:800px){main{grid-template-columns:1fr}}

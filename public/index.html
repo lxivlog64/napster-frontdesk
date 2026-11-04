@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Front Desk – Napster Omniagent</title><link rel="stylesheet" href="/app.css"></head>
+<body>
+<header><h1 id="biz">Front Desk</h1><p>Talk to our receptionist on video, or call <b id="phone">our phone line</b>. Same agent, same memory.</p></header>
+<main>
+  <section class="card" id="agentCard">
+    <h2>Talk to the front desk</h2>
+    <form id="start"><label>Your phone (lets her remember you next time)<input id="ph" type="tel" placeholder="+1 555 123 4567"></label>
+      <button>Start video call</button></form>
+    <div id="avatar"></div><p id="status" class="muted"></p>
+  </section>
+  <section class="card"><h2>Live bookings <span class="dot"></span></h2>
+    <table><thead><tr><th>When</th><th>Service</th><th>Customer</th><th>Channel</th><th>Status</th><th>Ref</th></tr></thead><tbody id="rows"></tbody></table>
+    <ul id="feed" class="muted"></ul>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@touchcastllc/napster-companion-api@latest/lib/index.standalone.js"></script>
+<script src="/app.js"></script>
+</body></html>

@@ -1,0 +1,22 @@
+# Prepared only; NOT deployed. Set secrets (NAPSTER_API_KEY, TOOL_SECRET) in the Render dashboard, never here.
+services:
+  - type: web
+    name: napster-frontdesk
+    runtime: node
+    plan: free
+    buildCommand: "true"
+    startCommand: node src/server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NAPSTER_API_KEY
+        sync: false
+      - key: TOOL_SECRET
+        generateValue: true
+      - key: NAPSTER_AGENT_ID
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: BUSINESS_NAME
+        value: Willow Lane Clinic
