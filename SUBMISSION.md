@@ -1,6 +1,8 @@
-# Napster API Ignite Hackathon — submission draft (NOT submitted)
+# Napster API Ignite Hackathon — SUBMITTED 2026-11-05 07:47 Asia/Shanghai
 
 Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov 30, 11:59 p.m. PT = Dec 1, 15:59 Beijing)
+
+**Submitted.** HubSpot confirmation: "Thank you for your submission! Your entry is in." Same-email resubmit updates the entry until the deadline. Winners Dec 9.
 
 | Field | Value |
 | --- | --- |
