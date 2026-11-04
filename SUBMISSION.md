@@ -8,7 +8,7 @@ Submit at: https://4z0cb.share.hsforms.com/26QEu3DLsQ9CtPNWc1Fg1IQ (deadline Nov
 | Tagline | A receptionist with a face, a voice and a memory that books, moves and cancels appointments for small clinics. |
 | Hosted demo | https://napster-frontdesk.onrender.com (free Render tier: first load can take ~50 s to wake up) |
 | Repository | https://github.com/lxivlog64/napster-frontdesk |
-| Demo video | _TODO: upload link (≤ 3:00)._ Current cut: `/workspace/napster-video/demo.mp4` (2:31). It is a fallback: the recording box blocks WebRTC, so it shows the live UI and the agent's tool calls sent directly to the deployed backend, with no live avatar call. Re-record with a real call if possible. |
+| Demo video | https://youtu.be/DOR_2W5_VUM (unlisted, 2:31). Fallback cut: box blocks WebRTC, so it shows the live UI and real tool calls against the deployed backend, not a live avatar call. Can re-record on Mac later. |
 
 ## Written summary (≤ 500 words; ~430 below)
 
